@@ -1,0 +1,6 @@
+.env
+.env.*
+dieta-alex-datos-iniciales.json
+*.private.json
+node_modules/
+.DS_Store

@@ -1,40 +1,29 @@
 # Dieta Alex PWA
 
-Aplicación instalable para Android con:
-
-- Menú semanal generado únicamente con los ingredientes marcados como comprados.
-- Licuados filtrados según disponibilidad.
-- Seguimiento de peso, cintura y métricas RENPHO.
-- Funcionamiento sin conexión.
-- Actualizaciones automáticas mediante GitHub Pages.
-- Perfil, compras y mediciones guardados localmente en el dispositivo; no están incluidos en el repositorio público.
-
-## Publicación en GitHub Pages
-
-1. En GitHub, abre **Settings → Pages**.
-2. En **Build and deployment → Source**, selecciona **GitHub Actions**.
-3. Abre la pestaña **Actions** y espera a que finalice `Deploy Dieta Alex to GitHub Pages`.
-4. La dirección será normalmente:
-   `https://alexmartinezau.github.io/dieta-alex/`
-
-## Instalación en Android
-
-1. Abre la dirección publicada en Chrome.
-2. Pulsa el menú `⋮`.
-3. Selecciona **Instalar aplicación** o **Añadir a pantalla principal**.
-4. Las versiones nuevas se detectan al abrir la aplicación con conexión.
-
-## Actualización
-
-Al modificar archivos y hacer `push` a `main`, GitHub Pages publica la nueva versión. Para forzar que todos los dispositivos detecten una versión nueva:
-
-- Cambia `APP_VERSION` en `app.js`.
-- Cambia el nombre de `CACHE` en `sw.js` al mismo número de versión.
+Aplicación web progresiva en español para crear un menú semanal únicamente con los ingredientes marcados como comprados, registrar ejercicio y seguir tendencias de peso, cintura y métricas RENPHO.
 
 ## Privacidad
 
-Las compras, mediciones y progreso se guardan en `localStorage` del dispositivo. Usa **Progreso → Exportar respaldo** antes de borrar datos del navegador o cambiar de teléfono.
+El perfil, las compras, el progreso y los respaldos permanecen en el almacenamiento local del dispositivo. El repositorio no contiene información personal ni médica precargada.
 
-## Carga inicial privada
+## Sitio publicado
 
-Después de instalar la app, usa **Progreso → Importar respaldo** y selecciona el archivo privado `dieta-alex-datos-iniciales.json`. No subas ese archivo al repositorio.
+<https://alexmartinezau.github.io/dieta-alex/>
+
+GitHub Pages publica directamente la rama `main` desde la carpeta raíz. Cada `push` a `main` inicia una nueva compilación.
+
+## Instalación
+
+En Android, abre el sitio en Chrome y selecciona **Menú de tres puntos → Instalar aplicación** o **Añadir a pantalla de inicio**. En computadoras compatibles, usa el icono de instalación de la barra de direcciones.
+
+## Desarrollo y validación
+
+La aplicación no necesita dependencias ni proceso de compilación. Sirve la carpeta con cualquier servidor HTTP local y valida la sintaxis con:
+
+```sh
+node --check data.js
+node --check app.js
+node --check sw.js
+```
+
+El service worker conserva el núcleo de la aplicación para abrirla sin conexión después de la primera visita.
