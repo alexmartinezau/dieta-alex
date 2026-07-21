@@ -1,4 +1,4 @@
-const rec=new Set(['yogur','huevo','claras','pollo','pescado','atun','cottage','frijol','leche','platano','manzana','pina','espinaca','pepino','jicama','zanahoria','ensalada','tomate','cebolla','verduras','pico','avena','tortilla','arroz','papa','chia','aguacate','cacao']);
+const rec=new Set(['yogur','huevo','pollo','pescado','atun','carne','frijol','lenteja','leche','platano','manzana','guayaba','mamey','pina','frutos','espinaca','pepino','zanahoria','ensalada','tomate','cebolla','verduras','avena','tortilla','arroz','papa','tostada','aguacate','aceite']);
 const label=id=>Object.values(G).flat().find(x=>x[0]===id)?.[1]||id,purchases=()=>new Set(J('da_purchases',[])),ok=(r,p=purchases())=>r.req.every(x=>p.has(x));
 function tab(id){$$('.tab').forEach(x=>x.classList.toggle('active',x.dataset.tab===id));$$('.panel').forEach(x=>x.classList.toggle('active',x.id===id));if(id==='progreso')chart();scrollTo(0,0)}
 $$('.tab').forEach(x=>x.onclick=()=>tab(x.dataset.tab));
